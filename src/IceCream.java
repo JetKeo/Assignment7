@@ -21,11 +21,19 @@ public class IceCream extends DessertItem{
     public String toString()
     {
      
+        String fromIceCream = super.getName();
+        for(int i = 0; i < DessertShoppe.RECEIPT_WIDTH - (DessertShoppe.cents2dollarsAndCents(getCost()).length() + super.getName().length()); i++){
+            fromIceCream += " ";
+        }
+        fromIceCream += DessertShoppe.cents2dollarsAndCents(cost);
+        
+        return fromIceCream;
        
     }
 
     @Override
     public int getCost() {
+        return cost;
        
     }
     

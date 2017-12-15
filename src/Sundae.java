@@ -9,19 +9,13 @@
  * @author jetkeo
  */
 public class Sundae extends IceCream{
-    private String icName;
-    private int icCost;
     private String toppingName;
-    private int toppingCost;
 
     
     public Sundae(String icName, int icCost, String toppingName, int toppingCost)
     {
-     super();
-     this.icName = icName;
-     this.icCost = icCost;
+     super(icName, icCost + toppingCost);
      this.toppingName = toppingName;
-     this.toppingCost = toppingCost;
      
     }
     
@@ -30,6 +24,14 @@ public class Sundae extends IceCream{
     public String toString()
     {
         
+        String fromSundae = toppingName + " Sundae with";
+        fromSundae += "\n" + getName();
+        for(int i = 0; i < DessertShoppe.RECEIPT_WIDTH - (DessertShoppe.cents2dollarsAndCents(getCost()).length() + super.getName().length()); i++){
+            fromSundae += " ";
+        }
+        fromSundae += DessertShoppe.cents2dollarsAndCents(getCost());
+        
+        return fromSundae;
     }
     
 }
